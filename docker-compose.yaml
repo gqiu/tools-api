@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  tools-api:
+    image: qiulanfang/tools-api:latest  # ← 替换为你的 Docker Hub 用户名
+    container_name: tools-api
+    ports:
+      - "3871:5000"
+    restart: unless-stopped
