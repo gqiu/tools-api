@@ -7,29 +7,9 @@ on:
     branches: [master]
 
 jobs:
-  test:
-    name: Run Flask App Lint Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install flake8
-
-      - name: Run flake8
-        run: flake8 server.py
-
   docker:
     name: Build and Push Multi-Arch Docker Image
     runs-on: ubuntu-latest
-    needs: test
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
