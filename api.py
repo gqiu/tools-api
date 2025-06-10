@@ -57,3 +57,4 @@ def mst_to_unix():
     mst = pytz.timezone('US/Mountain')
     dt = datetime.strptime(dt_str, '%Y-%m-%d %H:%M:%S')
     return jsonify({"result": int(mst.localize(dt).timestamp())})
+
